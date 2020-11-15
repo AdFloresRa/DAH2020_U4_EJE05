@@ -16,4 +16,8 @@ students: Student[] = new Array();
     this.students = this.studentService.getStudents();
   }
 
+  changeStatus(pos: number): void{
+    this.studentService.changeStatus(pos);
+  }
+
 }
