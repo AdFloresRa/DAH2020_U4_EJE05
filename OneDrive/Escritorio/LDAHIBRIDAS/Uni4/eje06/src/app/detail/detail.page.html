@@ -30,14 +30,38 @@
     <ion-card-tittle>{{student.controlnumber}}</ion-card-tittle>
   </ion-card-header>
   <ion-card-content>
-    <p>CURP:<strong>{{student.curp}}</strong></p>
-    <p>EDAD:<strong>{{student.age}}</strong></p>
-    <ion-chip color="secondary" *ngIf="student.active" class="ion-float-center">
-      <ion-label>Activo</ion-label>
-    </ion-chip>
-    <ion-chip color="danger" *ngIf="!student.active" class="ion-float-center">
-      <ion-label>Inactivo</ion-label>
-    </ion-chip>
+    <form [formGroup]="myForm">
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <header>
+            <h3>Modificar Alumno</h3>
+          </header>
+          <main padding>
+            <ion-item>
+              <ion-label position="stacked">Curp</ion-label>
+              <ion-input formControlName="curp" type="text">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Edad</ion-label>
+              <ion-input name="age" formControlName="age" type="number">
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Activo</ion-label>
+              <ion-toggle formControlName="active" color="secondary" (click)="student.active = !student.active">
+              </ion-toggle>
+            </ion-item>
+          </main>
+          <footer padding>
+            <ion-button size="large" type="button" [disabled]="!myForm.valid"
+              (click)="update(student, student.active)" expand="block">
+              Guardar
+            </ion-button>
+          </footer>
+        </ion-col>
+      </ion-row>
+    </form>
   </ion-card-content>
 </ion-card>
 </ion-content>

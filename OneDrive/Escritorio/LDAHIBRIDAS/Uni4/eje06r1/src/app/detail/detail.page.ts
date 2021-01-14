@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-import {ActivatedRoute, Router} from '@angular/router';
-import {Estudiante} from '../models/estudiante';
-import {EstudianteService} from '../services/estudiante.service';
-import {ToastController} from '@ionic/angular';
+import { Estudiante } from '../models/estudiante';
+import { EstudianteService } from '../services/estudiante.service';
+import { ToastController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -75,7 +74,7 @@ export class DetailPage implements OnInit {
       message: 'Estudiante eliminado',
       duration: 2000
     });
-
   }
 
+  // t.present();
 }
